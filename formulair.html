@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>splitMate</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+</head>
+
+<body class="bg-slate-100 min-h-screen text-slate-800">
+    <header class="max-w-xl mx-auto p-6 flex-col items-center content-between">
+        <h1 class="text-cyan-950 font-mono text-4xl font-bold">SplitMate</h1>
+        <p>lhssab kytwl l3chra</p>
+    </header>
+
+    <main class="max-w-xl mx-auto p-6">
+        <!-- ===== Task form ===== -->
+        <form id="task-form" class="bg-white rounded-lg shadow p-4 space-y-3 mb-8">
+            <div>
+                <label for="title" class="block text-sm font-medium mb-1">Group title</label>
+                <input id="title" type="text" required placeholder=" inter group name"
+                    class="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <label for="description" class="block text-sm font-medium mb-1">Add mambers</label>
+
+            <div class="flex gap-2 items-center justify-around">
+                <input id="mumbers-list" rows="3" placeholder="inter your frindes names"
+                    class="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></input>
+                <button class="w-24 h-10 bg-blue-500 border-slate-300 rounded px-3 text-emerald-50 font-bold">Add</button>
+            </div>
+            <div id="collaboratorsList"></div>
+            <div>
+                <label for="status" class="block text-sm font-medium mb-1">Status</label>
+                <select id="status"
+                    class="w-full border border-slate-300 rounded px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="Active">Active</option>
+                    <option value="Done">Done</option>
+                </select>
+            </div>
+
+            <button type="button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded px-4 py-2"
+                id="addTskBtn">
+                Submit Group
+            </button>
+        </form>
+    </main>
+</body>
+
+</html>
