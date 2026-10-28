@@ -17,22 +17,22 @@
 
     <main class="max-w-xl mx-auto p-6">
         <!-- ===== Task form ===== -->
-        <form id="task-form" class="bg-white rounded-lg shadow p-4 space-y-3 mb-8">
+        <form id="group-form" class="bg-white rounded-lg shadow p-4 space-y-3 mb-8">
             <div>
                 <label for="title" class="block text-sm font-medium mb-1">Group title</label>
                 <input id="title" type="text" required placeholder=" inter group name"
                     class="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
 
-            <label for="description" class="block text-sm font-medium mb-1">Add members</label>
+            <label for="members-adding" class="block text-sm font-medium mb-1">Add members</label>
 
             <div class="flex gap-2 items-center justify-around">
-                <input id="mumbers-list" rows="3" placeholder="inter your frindes names"
+                <input id="mumbers" rows="3" placeholder="inter your frindes names"
                     class="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></input>
                 <button
                     class="w-24 h-10 bg-blue-500 border-slate-300 rounded px-3 text-emerald-50 font-bold">Add</button>
             </div>
-            <div id="collaboratorsList"></div>
+            <div id="members-list"></div>
             <div>
                 <label for="status" class="block text-sm font-medium mb-1">Status</label>
                 <select id="status"
@@ -42,12 +42,11 @@
                 </select>
             </div>
 
-            <button type="button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded px-4 py-2"
-                id="addTskBtn">
+            <button id="add-group-btn" type="button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded px-4 py-2">
                 Submit Group
             </button>
         </form>
-        <form id="task-form" class="bg-white rounded-lg shadow p-4 space-y-3 mb-8">
+        <form id="members-form" class="bg-white rounded-lg shadow p-4 space-y-3 mb-8">
             <div>
                 <select id="status"
                     class="w-full border border-slate-300 rounded px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -56,25 +55,25 @@
                 </select>
             </div>
 
-            <label for="description" class="block text-sm font-medium mb-1">category</label>
+            <label for="category" class="block text-sm font-medium mb-1">category</label>
             <div class="flex gap-2 items-center justify-around">
-                <input id="mumbers-list" rows="3" placeholder="what they paid for"
+                <input id="categories" placeholder="what they paid for"
                     class="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></input>
                 <button
                     class="w-24 h-10 bg-blue-500 border-slate-300 rounded px-3 text-emerald-50 font-bold">Add</button>
             </div>
             <div id="categories-list"></div>
 
-            <label for="description" class="block text-sm font-medium mb-1">expense</label>
+            <label for="expense" class="block text-sm font-medium mb-1">expense</label>
             <div class="flex gap-2 items-center justify-around">
-                <input id="mumbers-list" rows="3" placeholder="enter expense"
+                <input id="expense" rows="3" placeholder="enter expense"
                     class="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></input>
                 <button
                     class="w-24 h-10 bg-blue-500 border-slate-300 rounded px-3 text-emerald-50 font-bold">Add</button>
             </div>
             <div id="expenses-list"></div>
             <button type="button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded px-4 py-2"
-                id="addTskBtn">
+                id="add-mumbers-infos-btn">
                 add expense
             </button>
         </form>
