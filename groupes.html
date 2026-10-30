@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <title>SplitMate</title>
+</head>
+
+<body class=" min-h-screen bg-cyan-100">
+
+    <header id="groupes-header" class="max-w-xl mx-auto p-3 pt-4 pb-0 flex justify-between">
+        <div>
+            <h1 class="text-3xl font-bold flex items-center">SplitMate</h1>
+            <h2 class="text-sm font-bold text-cyan-950"></h2>
+        </div>
+        <button class="rounded-xl bg-blue-600 p-2 hover:bg-cyan-600 flex"><a
+                class="flex items-center gap-2 text-blue-50 text-xs font-bold" href="./group-formulair.html">Add groupe
+                <img src="asessts/apps-add (1).png" alt="add new group" width="14"></a></button>
+    </header>
+
+    <!--main-->
+
+    <main class="max-w-xl mx-auto p-3">
+        <p id="empty-message" hidden>No groups are created yet. Add one from the + sign above</p>
+        <ul id="group-list" class="space-y-3 rounded-lg p-1">
+            <!-- EXAMPLE task: shows how a task should look. Delete this <li> once your JavaScript works. -->
+            <li id="group-card" class="bg-cyan-600 rounded-lg shadow p-4 pt-2 pb-2 pb-0">
+                <div id="card-items" class="flex flex-col gap-3 ">
+                    <div id="groupe-header" class=" flex justify-between items-center">
+                        <h3 class="font-bold text-2xl font-serif ">Tobkal Trip</h3>
+                        <div class="flex gap-2 items-center">
+                            <button id="add-member-btn" class="flex gap-1 items-center text-sm font-bold"><a
+                                    href="members-formulair.html"
+                                    class="flex gap-2 items-center text-xs bg-cyan-100 rounded-xl p-1 hover:bg-blue-200">
+                                    Add member<img src="asessts/add.png" alt="add member icon" height="20"
+                                        width="20"></a></button>
+                        </div>
+                    </div>
+                    <div id="group-infos" class="flex p-1 justify-between">
+                        <div class="flex flex-col justify-between ">
+                            <div class="flex items-center gap-2 ">
+                                <img src="asessts/member-list (1).png" alt="group members count" width="15">
+                                <a href="members.html" class="text-sm text-current hover:text-black hover:font-bold">5
+                                    members</a></span>
+                            </div>
+                            <span id="group-status"
+                                class="bg-green-300 p-1 text-xs font-bold flex justify-center items-center rounded-xl ">active</span>
+                        </div>
+                        <div class="flex flex-col items-end gap-2 h-full">
+                            <p id="total-amount" class="text-4xl font-bold text-amber-400">500$</p>
+
+                            <div>
+                                <button id="edit-member-btn" class="p-2 bg-cyan-100 rounded-full hover:bg-blue-200"><a
+                                        href=""><img src="asessts/pencil (1).png"
+                                            alt="pincel icone to edit memers infos" title="edit group" width="20"
+                                            height="20"></a></button> <button id="delte-group-btn"
+                                    class="p-2 bg-cyan-100 rounded-full hover:bg-red-100 "><img
+                                        src="asessts/trash-can-list.png" alt="bin icon" title="delete group" width="20"
+                                        height="20"></button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+    </main>
+
+    <!--footer-->
+    <footer></footer>
+    <script src="./js/depenses.js"></script>
+</body>
+
+</html>
