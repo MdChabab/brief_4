@@ -54,63 +54,7 @@
             </form> -->
     </main>
     <script src="js/groupes.js">
-        let groups = [];
-        const groupMembers = [];
-
-        let titleBlock = document.getElementById('title');
-        let categoryBlock = document.getElementById('group-category')
-        let groupStatusBlock = document.getElementById('status');
-        let groupDateBlock = document.getElementById('group-date')
-        let idCounter = 1;
-
-        function titleInputCheck(title) {
-            let titleTrimed = title.value.trim();
-            if (titleTrimed == '') {
-                title.innerHTML = '';
-                return;
-            }
-            return titleTrimed;
-        }
-
-        function categoryInputCheck(category) {
-            let categoryTrimed = category.value.trim();
-            if (categoryTrimed == '') {
-                category.innerHTML = '';
-                return;
-            }
-            return categoryTrimed;
-        }
-
-
-
-        function generateGroup() {
-            let title = titleInputCheck(titleBlock);
-            let category = categoryInputCheck(categoryBlock);
-            let status = groupStatusBlock.value;
-            let date = groupDateBlock.value;
-
-            if (!title || !category || !status || !date) {
-                titleBlock.value = '';
-                categoryBlock.value = '';
-                groupStatusBlock.value = '';
-                groupDateBlock.value = '';
-                return;
-            }
-            newGroup = {
-                groupId: idCounter++,
-                groupTitle: title,
-                groupCategory: category,
-                groupStatus: status,
-                groupDate: date
-            }
-            groups.push(newGroup)
-            console.log(groups);
-            titleBlock.value = '';
-            categoryBlock.value = '';
-            groupStatusBlock.value = '';
-            groupDateBlock.value = '';
-            return;
-        };
+        import {generateGroup} from 'js/groupes.js'
     </script>
 </body>
 
