@@ -1,65 +1,62 @@
 let groups = [];
 
-let titleBlock = document.getElementById('title');
-let categoryBlock = document.getElementById('group-category')
-let groupStatusBlock = document.getElementById('status');
-let groupDateBlock = document.getElementById('group-date')
+let titleBlock = document.getElementById("title");
+let categoryBlock = document.getElementById("group-category");
+let groupStatusBlock = document.getElementById("status");
+let groupDateBlock = document.getElementById("group-date");
 let idCounter = 1;
 
 function titleInputCheck(title) {
-    let titleTrimed = title.value.trim();
-    if (titleTrimed == '') {
-        title.innerHTML = '';
-        return;
-    }
-    return titleTrimed;
+  let titleTrimed = title.value.trim();
+  if (titleTrimed == "") {
+    title.innerHTML = "";
+    return;
+  }
+  return titleTrimed;
 }
 
 function categoryInputCheck(category) {
-    let categoryTrimed = category.value.trim();
-    if (categoryTrimed == '') {
-        category.innerHTML = '';
-        return;
-    }
-    return categoryTrimed;
+  let categoryTrimed = category.value.trim();
+  if (categoryTrimed == "") {
+    category.innerHTML = "";
+    return;
+  }
+  return categoryTrimed;
 }
 
-
 function generateGroup() {
-    let title = titleInputCheck(titleBlock);
-    let category = categoryInputCheck(categoryBlock);
-    let status = groupStatusBlock.value;
-    let date = groupDateBlock.value;
+  let title = titleInputCheck(titleBlock);
+  let category = categoryInputCheck(categoryBlock);
+  let status = groupStatusBlock.value;
+  let date = groupDateBlock.value;
 
-    if (!title || !category || !status || !date) {
-        titleBlock.value = '';
-        categoryBlock.value = '';
-        groupStatusBlock.value = '';
-        groupDateBlock.value = '';
-        return;
-    }
-    let newGroup = {
-        groupId: idCounter++,
-        groupTitle: title,
-        groupCategory: category,
-        groupStatus: status,
-        groupDate: date
-    }
-    groups.push(newGroup)
-    console.log(groups);
-    titleBlock.value = '';
-    categoryBlock.value = '';
-    groupStatusBlock.value = '';
-    groupDateBlock.value = '';
-    desplayAvailableGroups(groups);
-};
-
+  if (!title || !category || !status || !date) {
+    titleBlock.value = "";
+    categoryBlock.value = "";
+    groupStatusBlock.value = "";
+    groupDateBlock.value = "";
+    return;
+  }
+  let newGroup = {
+    groupId: idCounter++,
+    groupTitle: title,
+    groupCategory: category,
+    groupStatus: status,
+    groupDate: date,
+  };
+  groups.push(newGroup);
+  console.log(groups);
+  titleBlock.value = "";
+  categoryBlock.value = "";
+  groupStatusBlock.value = "";
+  groupDateBlock.value = "";
+  desplayAvailableGroups(groups);
+}
 
 function desplayAvailableGroups(groups) {
-
-    groupsListBlock.innerHTML = '';
-    groups.forEach(group => {
-        groupsListBlock.innerHTML += `
+  groupsListBlock.innerHTML = "";
+  groups.forEach((group) => {
+    groupsListBlock.innerHTML += `
             <li id="group-card" class="bg-cyan-600 rounded-lg shadow p-4 pt-2 pb-2 pb-0" data-id = "${group.groupId}">
                 <div id="card-items" class="flex flex-col gap-3 ">
                     <div id="groupe-header" class=" flex justify-between items-center">
@@ -98,7 +95,6 @@ function desplayAvailableGroups(groups) {
 
                 </div>
             </li>
-        `
-    });
-
+        `;
+  });
 }

@@ -16,7 +16,7 @@
         <h1 class="text-3xl font-bold flex items-center">SplitMate</h1>
         <h2 class="text-sm font-bold text-cyan-950"></h2>
       </div>
-      <button class="rounded-xl bg-blue-600 p-2 hover:bg-cyan-600 flex" onclick="showClick()">
+      <button class="rounded-xl bg-blue-600 p-2 hover:bg-cyan-600 flex" onclick="showGroupClick()">
         <a
           class="flex items-center gap-2 text-blue-50 text-xs font-bold"
           >Add groupe
@@ -28,18 +28,17 @@
     <!--main-->
 
     <main class="max-w-xl mx-auto p-3">
-      <!-- <p id="empty-message" hidden>
+      <p id="empty-message" hidden>
         No groups are created yet. Add one from the + sign above
       </p>
-      <ul id="group-list" class="space-y-3 rounded-lg p-1"> -->
+      <ul id="group-list" class="space-y-3 rounded-lg p-1">
         <!-- EXAMPLE task: shows how a task should look. Delete this <li> once your JavaScript works. -->
-        <!-- <li id="group-card" class="bg-cyan-600 rounded-lg shadow p-4 pt-2 pb-2 pb-0">
+        <li id="group-card" class="bg-cyan-600 rounded-lg shadow p-4 pt-2 pb-2 pb-0">
                 <div id="card-items" class="flex flex-col gap-3 ">
                     <div id="groupe-header" class=" flex justify-between items-center">
                         <h3 class="font-bold text-2xl font-serif ">Tobkal Trip</h3>
                         <div class="flex gap-2 items-center">
-                            <button id="add-member-btn" class="flex gap-1 items-center text-sm font-bold"><a
-                                    href="members-formulair.html"
+                            <button id="add-member-btn" class="flex gap-1 items-center text-sm font-bold" onclick="showMemberClick()"><a
                                     class="flex gap-2 items-center text-xs bg-cyan-100 rounded-xl p-1 hover:bg-blue-200">
                                     Add member<img src="asessts/add.png" alt="add member icon" height="20"
                                         width="20"></a></button>
@@ -71,7 +70,7 @@
 
                 </div>
             </li>
-      </ul> -->
+      </ul>
       <dialog id="group-form-dialog" class="rounded-lg shadow">
         <form id="groups-form" class="flex flex-col gap-5 p-4 pt-2 pb-2 pb-0">
             <div>
@@ -101,9 +100,45 @@
                 class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded px-4 py-2">
                 Submit Group
             </button>
-            <button onclick="closeClick()" id="add-group-btn" type="button"
+            <button onclick="closeGroupClick()" id="add-group-btn" type="button"
                 class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded px-4 py-2">
                 Close
+            </button>
+        </form>
+      </dialog>
+
+      <dialog id="memebers-form-dialog">
+        <form id="members-form" class="bg-cyan-600 rounded-lg shadow p-4 pt-2 pb-2 pb-0 flex flex-col gap-4">
+            <div>
+                <label for="members" class="block text-sm font-medium mb-1">Members</label>
+                <div class="flex gap-2 items-center justify-around">
+                    <input id="members" placeholder="enter group memebers"
+                        class="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></input>
+                    <button class="w-24 h-10 bg-blue-600 hover:bg-blue-700 border-slate-300 rounded px-3 text-emerald-50 font-bold">Add</button>
+                </div>
+                <div id="members-list"></div>
+            </div>
+            <div>
+                <label for="category" class="block text-sm font-medium mb-1">category</label>
+                <div class="flex gap-2 items-center justify-around">
+                    <input id="categories" placeholder="what they paid for"
+                        class="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></input>
+                    <button class="w-24 h-10 bg-blue-600 hover:bg-blue-700 border-slate-300 rounded px-3 text-emerald-50 font-bold">Add</button>
+                </div>
+                <div id="categories-list"></div>
+            </div>
+            <div>
+                <label for="expense" class="block text-sm font-medium mb-1">expense</label>
+                <div class="flex gap-2 items-center justify-around">
+                    <input id="expense" rows="3" placeholder="enter expense"
+                        class="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></input>
+                    <button class="w-24 h-10 bg-blue-600 hover:bg-blue-700 border-slate-300 rounded px-3 text-emerald-50 font-bold">Add</button>
+                </div>
+                <div id="expenses-list"></div>
+            </div>
+            <button onclick="closeMemberClick()" type="button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded px-4 py-2"
+                id="add-mumbers-infos-btn">
+                add expense
             </button>
         </form>
       </dialog>
@@ -113,12 +148,20 @@
 
     <script>
         const groupFormDialog = document.getElementById("group-form-dialog")
+        const memebersFormDialog = document.getElementById("memebers-form-dialog")
 
-        function showClick() {
+        function showGroupClick() {
             groupFormDialog.showModal()
         }
-        function closeClick() {
+        function closeGroupClick() {
             groupFormDialog.close()
+        }
+
+        function showMemberClick() {
+            memebersFormDialog.showModal()
+        }
+        function closeMemberClick() {
+            memebersFormDialog.close()
         }
     </script>
     <script src="./js/groupes.js"></script>
