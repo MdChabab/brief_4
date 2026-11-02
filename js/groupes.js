@@ -1,9 +1,3 @@
-import {groupsListBlock} from 'groupes.html';
-console.log(groupsListBlock);
-
-
-
-
 let groups = [];
 
 let titleBlock = document.getElementById('title');
@@ -31,8 +25,7 @@ function categoryInputCheck(category) {
 }
 
 
-
-export function generateGroup() {
+function generateGroup() {
     let title = titleInputCheck(titleBlock);
     let category = categoryInputCheck(categoryBlock);
     let status = groupStatusBlock.value;
