@@ -138,11 +138,13 @@
             </form>
         </dialog>
 
-        <dialog id="members-dialog" class="rounded-lg shadow">
+        <dialog id="members-dialog" class="max-w-xl rounded-lg shadow">
             <div id="" class="bg-cyan-950 text-xl font-bold flex flex-col gap-3 p-2 rounded-2xl">
-                <div id="group-title" class="flex flex-col items-center text-cyan-50 font-bold text-2xl font-serif">
-                    Tobkal trip</div>
-                <ul id="members-list" gap-2>
+                <div class="flex justify-between">
+                    <span id="group-title" class="flex flex-col items-center text-cyan-50 font-bold text-2xl font-serif">group title </span>
+                    <button onclick="closeMemberClick()" class="text-sm p-2 bg-blue-400">click </button>                    
+                </div>
+                <ul id="members-list">
                     <div id="members-list-items" class="flex flex-col gap-2">
                         <li>
                             <div class=" bg-sky-800 p-2 flex items-center justify-between rounded-2xl ">
