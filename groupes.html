@@ -21,7 +21,7 @@
         </div>
         <button class="rounded-xl bg-blue-600 p-2 hover:bg-cyan-600 flex" onclick="showGroupClick()">
             <a class="flex items-center gap-2 text-blue-50 text-xs font-bold">Add groupe
-                <img src="asessts/apps-add (1).png" alt="add new group" width="14" /></a>
+                <ion-icon name="add-circle"></ion-icon></a>
         </button>
     </header>
 
@@ -48,7 +48,7 @@
                     <div id="group-infos" class="flex p-1 justify-between">
                         <div class="flex flex-col justify-between ">
                             <div class="flex items-center gap-2" onclick="showMemberClick()">
-                                <img src="asessts/member-list (1).png" alt="group members count" width="15">
+                                <ion-icon name="walk" style="width: 20px;"></ion-icon>
                                 <span class="text-sm text-current hover:text-black hover:font-bold">5
                                     members</span>
                             </div>
@@ -108,9 +108,10 @@
         </dialog>
 
         <dialog id="memebers-form-dialog" class="rounded-lg shadow">
+
             <form id="members-form" class="bg-cyan-600 rounded-lg shadow p-4 pt-2 pb-2 pb-0 flex flex-col gap-4">
                 <div>
-                    <label for="members" class="block text-sm font-medium mb-1">Member</label>
+                    <label for="members" class="block text-sm font-medium mb-1">Full Name</label>
                     <div class="flex gap-2 items-center justify-around">
                         <input id="members" placeholder="enter group memebers"
                             class="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></input>
@@ -118,17 +119,9 @@
                     <div id="members-list"></div>
                 </div>
                 <div>
-                    <label for="category" class="block text-sm font-medium mb-1">category</label>
+                    <label for="expense" class="block text-sm font-medium mb-1">pseudo-name</label>
                     <div class="flex gap-2 items-center justify-around">
-                        <input id="categories" placeholder="what they paid for"
-                            class="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></input>
-                       </div>
-                    <div id="categories-list"></div>
-                </div>
-                <div>
-                    <label for="expense" class="block text-sm font-medium mb-1">expense</label>
-                    <div class="flex gap-2 items-center justify-around">
-                        <input id="expense" rows="3" placeholder="enter expense"
+                        <input id="expense" rows="3" placeholder="enter pseudo-name"
                             class="w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></input>
                         </div>
                     <div id="expenses-list"></div>
@@ -207,7 +200,11 @@
             membersDialog.close()
         }
     </script>
+    
     <script src="./js/groupes.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
