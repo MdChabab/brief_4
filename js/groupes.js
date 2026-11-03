@@ -1,19 +1,18 @@
-
 let groups = [
-    {
-        groupId: 10,
-        groupTitle: "tobkal trip",
-        groupCategory: "trip",
-        groupStatus: "done",
-        groupDate: "11/02/2022",
-    },
-    {
-        groupId: 6,
-        groupTitle: "Roma Tour",
-        groupCategory: "travel",
-        groupStatus: "avtive",
-        groupDate: "17/02/2026"
-    }
+  {
+    groupId: 10,
+    groupTitle: "tobkal trip",
+    groupCategory: "trip",
+    groupStatus: "done",
+    groupDate: "11/02/2022",
+  },
+  {
+    groupId: 6,
+    groupTitle: "Roma Tour",
+    groupCategory: "travel",
+    groupStatus: "avtive",
+    groupDate: "17/02/2026",
+  },
 ];
 
 let titleBlock = document.getElementById("title");
@@ -23,80 +22,119 @@ let groupDateBlock = document.getElementById("group-date");
 let idCounter = 1;
 desplayAvailableGroups(groups);
 function creatGroup() {
-    let title = checkInput(titleBlock);
-    let category = checkInput(categoryBlock);
-    let status = groupStatusBlock.value;
-    let date = groupDateBlock.value;
+  let title = checkInput(titleBlock);
+  let category = checkInput(categoryBlock);
+  let status = groupStatusBlock.value;
+  let date = groupDateBlock.value;
 
-    if (!title || !category || !status || !date) {
-        titleBlock.value = "";
-        categoryBlock.value = "";
-        groupStatusBlock.value = "";
-        groupDateBlock.value = "";
-        return;
-    }
-    let newGroup = {
-        groupId: idCounter++,
-        groupTitle: title,
-        groupCategory: category,
-        groupStatus: status,
-        groupDate: date,
-    };
-    groups.push(newGroup);
-    console.log(groups);
+  if (!title || !category || !status || !date) {
     titleBlock.value = "";
     categoryBlock.value = "";
     groupStatusBlock.value = "";
     groupDateBlock.value = "";
-    desplayAvailableGroups(groups);
-    closeGroupClick();
-
+    return;
+  }
+  let newGroup = {
+    groupId: idCounter++,
+    groupTitle: title,
+    groupCategory: category,
+    groupStatus: status,
+    groupDate: date,
+  };
+  groups.push(newGroup);
+  console.log(groups);
+  titleBlock.value = "";
+  categoryBlock.value = "";
+  groupStatusBlock.value = "";
+  groupDateBlock.value = "";
+  desplayAvailableGroups(groups);
+  closeGroupClick();
 }
 function desplayAvailableGroups(groups) {
-    const groupsListBlock = document.getElementById('group-list');
+  const groupsListBlock = document.getElementById("group-list");
 
-    groupsListBlock.innerHTML = "";
-    groups.forEach((group) => {
-        groupsListBlock.innerHTML += `
-            <li id="group-card" class="bg-cyan-600 rounded-lg shadow p-4 pt-2 pb-2 pb-0" data-id = "${group.groupId}">
-                <div id="card-items" class="flex flex-col gap-3 ">
-                    <div id="groupe-header" class=" flex justify-between items-center">
-                        <h3 class="font-bold text-2xl font-serif ">${group.groupTitle}</h3>
-                        <div class="flex gap-2 items-center">
-                            <button id="add-member-btn" class="flex gap-1 items-center text-sm font-bold"
-                                onclick="showMemberFormClick()"><a
-                                    class="flex gap-2 items-center text-xs bg-cyan-100 rounded-xl p-1 hover:bg-blue-200">
-                                    Add member<img src="asessts/add.png" alt="add member icon" height="20"
-                                        width="20"></a></button>
-                        </div>
-                    </div>
-                    <div id="group-infos" class="flex p-1 justify-between">
-                        <div class="flex flex-col justify-between ">
-                            <div class="flex items-center gap-2" onclick="showMemberClick()">
-                                <img src="asessts/member-list (1).png" alt="group members count" width="15">
-                                <span class="text-sm text-current hover:text-black hover:font-bold">${members.length} members</span>
-                            </div>
-                            <span id="group-status"
-                                class="bg-green-300 p-1 text-xs font-bold flex justify-center items-center rounded-xl ">${group.groupStatus}</span>
-                        </div>
-                        <div class="flex flex-col items-end gap-6 h-full">
-                            <button class="flex gap-2 items-center text-3xl  font-bold text-amber-400"><a
-                                    id="total-amount"><img src="asessts/money-transfer-coin-arrow.png" alt="money icon"
-                                        width="30" height="30"></a>500$</button>
-                            <div>
-                                <button id="edit-member-btn" class="p-2 bg-cyan-100 rounded-full hover:bg-blue-200"><a
-                                        href=""><img src="asessts/pencil (1).png"
-                                            alt="pincel icone to edit memers infos" title="edit group" width="20"
-                                            height="20"></a></button> <button id="delte-group-btn"
-                                    class="p-2 bg-cyan-100 rounded-full hover:bg-red-100 "><img
-                                        src="asessts/trash-can-list.png" alt="bin icon" title="delete group" width="20"
-                                        height="20"></button>
-                            </div>
-                        </div>
-                    </div>
+  groupsListBlock.innerHTML = "";
+  groups.forEach((group) => {
+    groupsListBlock.innerHTML += `
+    <li class="bg-[#292c32] border border-[#383b43] rounded-2xl p-5 hover:border-[#484c56] transition-colors"
+    data-id="${group.groupId}">
+
+    <div class="flex flex-col gap-4">
+
+        <div class="flex justify-between items-start gap-3">
+
+            <div class="flex flex-col gap-1 min-w-0">
+
+                <h3 class="font-semibold text-lg text-white">
+                    ${group.groupTitle}
+                </h3>
+
+                <p class="text-sm text-gray-400">
+                    ${group.groupDescription || "No description added yet."}
+                </p>
+
+            </div>
+
+            <button onclick="showMemberFormClick()"
+                class="shrink-0 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+                + Add member
+            </button>
+
+        </div>
+
+        <div class="border-t border-[#383b43]"></div>
+
+        <div class="flex justify-between items-center gap-3">
+
+            <div class="flex flex-wrap items-center gap-5">
+
+                <div class="flex items-center gap-2 cursor-pointer text-gray-400 hover:text-white transition-colors"
+                    onclick="showMemberClick()">
+
+                    <ion-icon name="people" class="text-lg"></ion-icon>
+
+                    <span class="text-sm">
+                        ${members.length} members
+                    </span>
 
                 </div>
-            </li>
-        `;
-    });
+
+                <div class="flex items-center gap-2 text-white">
+
+                    <ion-icon name="wallet-outline" class="text-lg text-gray-400"></ion-icon>
+
+                    <span id="total-amount" class="font-semibold text-base">
+                        500$
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+
+                <button onclick="editGroupClick('${group.groupId}')"
+                    class="p-2 rounded-lg text-gray-400 hover:text-cyan-400 hover:bg-[#383b43] transition-colors"
+                    title="Edit group">
+
+                    <ion-icon name="create-outline" class="text-lg"></ion-icon>
+
+                </button>
+
+                <button onclick="deleteGroupClick('${group.groupId}')"
+                    class="p-2 rounded-lg text-gray-400 hover:text-red-400 hover:bg-[#383b43] transition-colors"
+                    title="Delete group">
+
+                    <ion-icon name="trash-outline" class="text-lg"></ion-icon>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</li>`;
+})
 }
