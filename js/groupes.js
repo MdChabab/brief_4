@@ -1,32 +1,30 @@
-let groups = [];
+
+let groups = [
+    {
+        groupId: 10,
+        groupTitle: "tobkal trip",
+        groupCategory: "trip",
+        groupStatus: "done",
+        groupDate: "11/02/2022",
+    },
+    {
+        groupId: 6,
+        groupTitle: "Roma Tour",
+        groupCategory: "travel",
+        groupStatus: "avtive",
+        groupDate: "17/02/2026"
+    }
+];
 
 let titleBlock = document.getElementById("title");
 let categoryBlock = document.getElementById("group-category");
 let groupStatusBlock = document.getElementById("status");
 let groupDateBlock = document.getElementById("group-date");
 let idCounter = 1;
-
-function titleInputCheck(title) {
-    let titleTrimed = title.value.trim();
-    if (titleTrimed == "") {
-        title.innerHTML = "";
-        return;
-    }
-    return titleTrimed;
-}
-
-function categoryInputCheck(category) {
-    let categoryTrimed = category.value.trim();
-    if (categoryTrimed == "") {
-        category.innerHTML = "";
-        return;
-    }
-    return categoryTrimed;
-}
-
-function generateGroup() {
-    let title = titleInputCheck(titleBlock);
-    let category = categoryInputCheck(categoryBlock);
+desplayAvailableGroups(groups);
+function creatGroup() {
+    let title = checkInput(titleBlock);
+    let category = checkInput(categoryBlock);
     let status = groupStatusBlock.value;
     let date = groupDateBlock.value;
 
@@ -54,7 +52,6 @@ function generateGroup() {
     closeGroupClick();
 
 }
-
 function desplayAvailableGroups(groups) {
     const groupsListBlock = document.getElementById('group-list');
 
@@ -77,8 +74,7 @@ function desplayAvailableGroups(groups) {
                         <div class="flex flex-col justify-between ">
                             <div class="flex items-center gap-2" onclick="showMemberClick()">
                                 <img src="asessts/member-list (1).png" alt="group members count" width="15">
-                                <span class="text-sm text-current hover:text-black hover:font-bold">5
-                                    members</span>
+                                <span class="text-sm text-current hover:text-black hover:font-bold">${members.length} members</span>
                             </div>
                             <span id="group-status"
                                 class="bg-green-300 p-1 text-xs font-bold flex justify-center items-center rounded-xl ">${group.groupStatus}</span>
