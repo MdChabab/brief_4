@@ -1,29 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <style>
+        dialog::backdrop {
+            backdrop-filter: blur(15px);
+        }
+    </style>
     <title>SplitMate</title>
 </head>
 
-<body class=" min-h-screen bg-cyan-100">
-
+<body class="min-h-screen">
     <header id="groupes-header" class="max-w-xl mx-auto p-3 pt-4 pb-0 flex justify-between">
         <div>
             <h1 class="text-3xl font-bold flex items-center">SplitMate</h1>
             <h2 class="text-sm font-bold text-cyan-950"></h2>
         </div>
-        <button class="rounded-xl bg-blue-600 p-2 hover:bg-cyan-600 flex"><a
-                class="flex items-center gap-2 text-blue-50 text-xs font-bold" href="./group-formulair.html">Add groupe
-                <img src="asessts/apps-add (1).png" alt="add new group" width="14"></a></button>
+        <button onclick="showGroupClick()"
+            class="flex items-center gap-2 bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-semibold rounded-xl px-4 py-2.5 transition-colors">
+            <ion-icon name="add-circle-outline" class="text-lg"></ion-icon>
+            Add group
+        </button>
     </header>
 
     <!--main-->
 
     <main class="max-w-xl mx-auto p-3">
-        <p id="empty-message" hidden>No groups are created yet. Add one from the + sign above</p>
+        <p id="empty-message" hidden>
+            No groups are created yet. Add one from the + sign above
+        </p>
         <ul id="group-list" class="space-y-3 rounded-lg p-1">
             <!-- EXAMPLE task: shows how a task should look. Delete this <li> once your JavaScript works. -->
             <!-- <li id="group-card" class="bg-cyan-600 rounded-lg shadow p-4 pt-2 pb-2 pb-0">
@@ -31,8 +39,8 @@
                     <div id="groupe-header" class=" flex justify-between items-center">
                         <h3 class="font-bold text-2xl font-serif ">Tobkal Trip</h3>
                         <div class="flex gap-2 items-center">
-                            <button id="add-member-btn" class="flex gap-1 items-center text-sm font-bold"><a
-                                    href="members-formulair.html"
+                            <button id="add-member-btn" class="flex gap-1 items-center text-sm font-bold"
+                                onclick="showMemberFormClick()"><a
                                     class="flex gap-2 items-center text-xs bg-cyan-100 rounded-xl p-1 hover:bg-blue-200">
                                     Add member<img src="asessts/add.png" alt="add member icon" height="20"
                                         width="20"></a></button>
@@ -40,16 +48,18 @@
                     </div>
                     <div id="group-infos" class="flex p-1 justify-between">
                         <div class="flex flex-col justify-between ">
-                            <div class="flex items-center gap-2 ">
-                                <img src="asessts/member-list (1).png" alt="group members count" width="15">
-                                <a href="members.html" class="text-sm text-current hover:text-black hover:font-bold">5
-                                    members</a></span>
+                            <div class="flex items-center gap-2" onclick="showMemberClick()">
+                                <ion-icon name="walk" style="width: 20px;"></ion-icon>
+                                <span class="text-sm text-current hover:text-black hover:font-bold">5
+                                    members</span>
                             </div>
                             <span id="group-status"
                                 class="bg-green-300 p-1 text-xs font-bold flex justify-center items-center rounded-xl ">active</span>
                         </div>
                         <div class="flex flex-col items-end gap-6 h-full">
-                            <button class="flex gap-2 items-center text-3xl  font-bold text-amber-400"><a id="total-amount" ><img src="asessts/money-transfer-coin-arrow.png" alt="money icon" width="30" height="30" ></a>500$</button>
+                            <button class="flex gap-2 items-center text-3xl  font-bold text-amber-400"><a
+                                    id="total-amount"><img src="asessts/money-transfer-coin-arrow.png" alt="money icon"
+                                        width="30" height="30"></a>500$</button>
                             <div>
                                 <button id="edit-member-btn" class="p-2 bg-cyan-100 rounded-full hover:bg-blue-200"><a
                                         href=""><img src="asessts/pencil (1).png"
@@ -65,13 +75,232 @@
                 </div>
             </li> -->
         </ul>
+
+        <dialog id="group-form-dialog"
+            class="w-[90%] max-w-md bg-[#292c32] text-white border border-[#383b43] rounded-2xl shadow-xl p-0 backdrop:bg-black/60">
+            <form id="groups-form" class="flex flex-col gap-5 p-5">
+                <div class="flex justify-between items-center">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">
+                            Group management
+                        </span>
+
+                        <h2 class="text-xl font-semibold">Create a group</h2>
+                    </div>
+
+                    <button onclick="closeGroupClick()" type="button"
+                        class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-[#383b43] transition-colors"
+                        title="Close">
+                        <ion-icon name="close-outline" class="text-2xl"></ion-icon>
+                    </button>
+                </div>
+
+                <div class="border-t border-[#383b43]"></div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="title" class="text-sm font-medium text-gray-300">
+                        Group title
+                    </label>
+
+                    <input id="title" type="text" required placeholder="Enter group name" name="groups"
+                        class="w-full bg-[#30333a] border border-[#444851] rounded-xl px-3 py-2.5 text-white placeholder-gray-500 outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="group category" class="text-sm font-medium text-gray-300">
+                        Category
+                    </label>
+
+                    <input id="group-category" required placeholder="Enter group category" type="text"
+                        class="w-full bg-[#30333a] border border-[#444851] rounded-xl px-3 py-2.5 text-white placeholder-gray-500 outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="status" class="text-sm font-medium text-gray-300">
+                        Status
+                    </label>
+
+                    <select id="status"
+                        class="w-full bg-[#30333a] border border-[#444851] rounded-xl px-3 py-2.5 text-white outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors">
+                        <option value="Active">Active</option>
+                        <option value="Done">Done</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="group-date" class="text-sm font-medium text-gray-300">
+                        Date :
+                    </label>
+
+                    <input type="date" id="group-date" name="Date"
+                        class="w-full bg-[#30333a] border border-[#444851] rounded-xl px-3 py-2.5 text-white outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" />
+                </div>
+
+                <div class="flex gap-3 pt-2">
+                    <button onclick="closeGroupClick()" id="add-group-btn" type="button"
+                        class="flex-1 bg-[#383b43] hover:bg-[#454952] text-gray-200 font-medium rounded-xl px-4 py-2.5 transition-colors">
+                        Cancel
+                    </button>
+
+                    <button onclick="creatGroup()" id="add-group-btn"
+                        class="flex-1 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold rounded-xl px-4 py-2.5 transition-colors">
+                        <ion-icon name="add-circle-outline" class="inline-block align-middle mr-1"></ion-icon>
+                        Submit Group
+                    </button>
+                </div>
+            </form>
+        </dialog>
+
+        <dialog id="memebers-form-dialog"
+            class="w-[90%] max-w-md bg-[#292c32] text-white border border-[#383b43] rounded-2xl shadow-xl p-0 backdrop:bg-black/60">
+            <form id="members-form" class="flex flex-col gap-5 p-5">
+                <div class="flex justify-between items-center">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">
+                            Group members
+                        </span>
+
+                        <h2 class="text-xl font-semibold">Add a member</h2>
+                    </div>
+
+                    <button onclick="closeMemberFormClick()" type="button"
+                        class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-[#383b43] transition-colors"
+                        title="Close">
+                        <ion-icon name="close-outline" class="text-2xl"></ion-icon>
+                    </button>
+                </div>
+
+                <div class="border-t border-[#383b43]"></div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="member-full-name" class="text-sm font-medium text-gray-300">
+                        Full name
+                    </label>
+
+                    <input id="member-full-name" name="member" type="text" placeholder="Enter member's full name"
+                        class="w-full bg-[#30333a] border border-[#444851] rounded-xl px-3 py-2.5 text-white placeholder-gray-500 outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" />
+
+                    <div id="members-list"></div>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="membre-pseudo-name" class="text-sm font-medium text-gray-300">
+                        Pseudo-name
+                    </label>
+
+                    <input id="membre-pseudo-name" type="text" placeholder="Enter a nickname"
+                        class="w-full bg-[#30333a] border border-[#444851] rounded-xl px-3 py-2.5 text-white placeholder-gray-500 outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" />
+
+                    <div id="expenses-list"></div>
+                </div>
+
+                <div class="flex gap-3 pt-2">
+                    <button onclick="closeMemberFormClick()" id="add-group-btn" type="button"
+                        class="flex-1 bg-[#383b43] hover:bg-[#454952] text-gray-200 font-medium rounded-xl px-4 py-2.5 transition-colors">
+                        Cancel
+                    </button>
+
+                    <button onclick="addpMember()" type="button" id="add-mumbers-infos-btn"
+                        class="flex-1 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold rounded-xl px-4 py-2.5 transition-colors">
+                        <ion-icon name="person-add-outline" class="inline-block align-middle mr-1"></ion-icon>
+                        Add member
+                    </button>
+                </div>
+            </form>
+        </dialog>
+
+        <dialog id="members-dialog"
+            class="w-[90%] max-w-xl bg-[#292c32] text-white border border-[#383b43] rounded-2xl shadow-xl p-0 backdrop:bg-black/60">
+            <div class="flex flex-col gap-5 p-5">
+                <div class="flex justify-between items-center">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">
+                            Group members
+                        </span>
+
+                        <h2 id="group-title" class="text-xl font-semibold">
+                            Group title
+                        </h2>
+                    </div>
+                    <button onclick="closeMemberClick()"
+                        class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-[#383b43] transition-colors"
+                        title="Close">
+                        <ion-icon name="close-outline" class="text-2xl"></ion-icon>
+                    </button>
+                </div>
+                <ul id="members-list" class="flex flex-col gap-3">
+                    <div id="members-list-items" class="flex flex-col gap-3">
+                        <li class="bg-[#30333a] border border-[#383b43] rounded-xl p-4">
+                            <div class="flex justify-between items-center gap-3">
+                                <div class="flex items-center gap-2 min-w-0">
+                                    <span id="member-name" class="font-semibold text-base truncate">
+                                        Amin
+                                    </span>
+                                    <button id="edit-member-btn"
+                                        class="p-1.5 rounded-lg text-gray-400 hover:text-cyan-400 hover:bg-[#383b43] transition-colors"
+                                        title="Edit member">
+                                        <ion-icon name="create-outline" class="text-lg"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="flex flex-col gap-1 text-sm shrink-0">
+                                    <span id="deservs" class="text-green-400">
+                                        <ion-icon name="arrow-up-outline"></ion-icon>
+                                        20$
+                                    </span>
+                                    <span id="on-you" class="text-red-400">
+                                        <ion-icon name="arrow-down-outline"></ion-icon>
+                                        50$
+                                    </span>
+                                </div>
+                                <div class="flex flex-col items-end gap-2 shrink-0">
+                                    <span id="montant-paid" class="font-bold text-lg text-white">
+                                        400$
+                                    </span>
+                                    <button id="delete-member-btn"
+                                        class="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-[#383b43] transition-colors"
+                                        title="Delete member">
+                                        <ion-icon name="trash-outline" class="text-lg"></ion-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </dialog>
     </main>
 
-    <!--footer-->
+    <script src="./js/membres.js"></script>
+    <script src="./js/groupes.js"></script>
+    <script>
+        const groupFormDialog = document.getElementById("group-form-dialog");
+        const membersFormDialog = document.getElementById("memebers-form-dialog");
+        const membersDialog = document.getElementById("members-dialog");
 
-    <script src="./js/groupes.js">
-        export const groupsListBlock = document.getElementById('group-list');
+        function showGroupClick() {
+            groupFormDialog.showModal();
+        }
+        function closeGroupClick() {
+            groupFormDialog.close();
+        }
+
+        function showMemberFormClick() {
+            membersFormDialog.showModal();
+        }
+        function closeMemberFormClick() {
+            membersFormDialog.close();
+        }
+
+        function showMemberClick() {
+            membersDialog.showModal();
+        }
+        function closeMemberClick() {
+            membersDialog.close();
+        }
     </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
