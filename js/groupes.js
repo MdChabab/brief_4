@@ -138,3 +138,8 @@ function desplayAvailableGroups(groups) {
 </li>`;
 })
 }
+
+function deleteGroupClick(toBeDeltedGrpId) {
+    groups = groups.filter((group) => group.groupId != toBeDeltedGrpId);
+    desplayAvailableGroups(groups);
+}
