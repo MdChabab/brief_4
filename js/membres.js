@@ -65,16 +65,18 @@ function dispalyMembers(members) {
             <div id="members-list-items" class="flex flex-col gap-3">
                 <li class="bg-[#30333a] border border-[#383b43] rounded-xl p-4">
                     <div class="flex justify-between items-center gap-3">
-                        <div class="flex items-center gap-2 min-w-0">
-                            <span id="member-name" class="font-semibold text-base truncate">
-                                ${member.memberName}
-                            </span>
-                        </div>
-
                         <div>
-                            <span id="montant-paid" class="font-bold text-lg text-white">
-                                400$
-                            </span>
+                            <div class="flex items-center gap-2 min-w-0">
+                                <span id="member-name" class="font-semibold text-lg truncate">
+                                    ${member.memberName}
+                                </span>
+                            </div>
+
+                            <div>
+                                <span id="montant-paid" class="text-amber-200 text-white">
+                                    ${expenseFetcher(member).toFixed(2)} DH
+                                </span>
+                            </div>
                         </div>
 
                         <div class="flex items-end gap-2 shrink-0">
