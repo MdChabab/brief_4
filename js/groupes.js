@@ -50,6 +50,7 @@ function creatGroup() {
     desplayAvailableGroups(groups);
     closeGroupClick();
 }
+
 function desplayAvailableGroups(groups) {
     const groupsListBlock = document.getElementById("group-list");
 

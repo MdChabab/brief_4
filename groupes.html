@@ -95,7 +95,7 @@
             </form>
         </dialog>
 
-        <dialog id="memebers-form-dialog"
+        <dialog id="members-form-dialog"
             class="w-[90%] max-w-md bg-[#292c32] text-white border border-[#383b43] rounded-2xl shadow-xl p-0 backdrop:bg-black/60">
             <form id="members-form" class="flex flex-col gap-5 p-5">
                 <div class="flex justify-between items-center">
@@ -118,8 +118,6 @@
                     </label>
                     <input id="member-full-name" name="member" type="text" placeholder="Enter member's full name"
                         class="w-full bg-[#30333a] border border-[#444851] rounded-xl px-3 py-2.5 text-white placeholder-gray-500 outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors" />
-
-                    <div id="members-list"></div>
                 </div>
                 <div class="flex flex-col gap-2">
                     <label for="membre-pseudo-name" class="text-sm font-medium text-gray-300">
@@ -163,44 +161,9 @@
                         <ion-icon name="close-outline" class="text-2xl"></ion-icon>
                     </button>
                 </div>
-                <ul id="members-list" class="flex flex-col gap-3">
-                    <div id="members-list-items" class="flex flex-col gap-3">
-                        <li class="bg-[#30333a] border border-[#383b43] rounded-xl p-4">
-                            <div class="flex justify-between items-center gap-3">
-                                <div class="flex items-center gap-2 min-w-0">
-                                    <span id="member-name" class="font-semibold text-base truncate">
-                                        Amin
-                                    </span>
-                                    <button id="edit-member-btn"
-                                        class="p-1.5 rounded-lg text-gray-400 hover:text-cyan-400 hover:bg-[#383b43] transition-colors"
-                                        title="Edit member">
-                                        <ion-icon name="create-outline" class="text-lg"></ion-icon>
-                                    </button>
-                                </div>
-                                <div class="flex flex-col gap-1 text-sm shrink-0">
-                                    <span id="deservs" class="text-green-400">
-                                        <ion-icon name="arrow-up-outline"></ion-icon>
-                                        20$
-                                    </span>
-                                    <span id="on-you" class="text-red-400">
-                                        <ion-icon name="arrow-down-outline"></ion-icon>
-                                        50$
-                                    </span>
-                                </div>
-                                <div class="flex flex-col items-end gap-2 shrink-0">
-                                    <span id="montant-paid" class="font-bold text-lg text-white">
-                                        400$
-                                    </span>
-                                    <button id="delete-member-btn"
-                                        class="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-[#383b43] transition-colors"
-                                        title="Delete member">
-                                        <ion-icon name="trash-outline" class="text-lg"></ion-icon>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                    </div>
-                </ul>
+
+                <ul id="members-list" class="flex flex-col gap-3"></ul>
+                
             </div>
         </dialog>
 
@@ -366,10 +329,11 @@
 
     <script src="./js/membres.js"></script>
     <script src="./js/groupes.js"></script>
+    <script src="./js/depenses.js"></script>
 
     <script>
         const groupFormDialog = document.getElementById("group-form-dialog");
-        const membersFormDialog = document.getElementById("memebers-form-dialog");
+        const membersFormDialog = document.getElementById("members-form-dialog");
         const membersDialog = document.getElementById("members-dialog");
         const expensesFormDialog = document.getElementById("expenses-form-dialog");
         const expensesDialog = document.getElementById("expenses-dialog");
