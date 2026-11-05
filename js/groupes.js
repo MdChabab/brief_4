@@ -72,7 +72,7 @@ function desplayAvailableGroups(groups) {
                     <button onclick="showMemberFormClick()" class="shrink-0 text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
                     + member
                     </button>
-                    <button onclick="showMemberFormClick()" class="shrink-0 text-sm font-medium text-amber-400 hover:text-amber-200 transition-colors">
+                    <button onclick="showExpenseFormClick()" class="shrink-0 text-sm font-medium text-amber-400 hover:text-amber-200 transition-colors">
                     + expense
                     </button>
                 </div>
