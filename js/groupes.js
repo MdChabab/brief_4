@@ -7,7 +7,7 @@ let groups = [
         groupDate: "11/02/2022",
     },
     {
-        groupId: 6,
+        groupId: 9,
         groupTitle: "Roma Tour",
         groupDescription: "Going outside for some fresh air",
         groupStatus: "active",
@@ -53,11 +53,10 @@ function creatGroup() {
 
 function desplayAvailableGroups(groups) {
     const groupsListBlock = document.getElementById("group-list");
-
     groupsListBlock.innerHTML = "";
     groups.forEach((group) => {
         groupsListBlock.innerHTML += `
-    <li class="bg-[#292c32] border border-[#383b43] rounded-2xl p-5 hover:border-[#484c56] transition-colors" data-id="${group.groupId}">
+    <li id = "group-card" class="bg-[#292c32] border border-[#383b43] rounded-2xl p-5 hover:border-[#484c56] transition-colors" data-id="${group.groupId}">
 
         <div class="flex flex-col gap-4">
             <div class="flex justify-between items-start gap-3">
@@ -89,7 +88,7 @@ function desplayAvailableGroups(groups) {
                         onclick="showMemberClick()">
                         <ion-icon name="people" class="text-lg"></ion-icon>
                         <span class="text-sm">
-                            ${members.length} members
+                            ${getMembersCount(members, group.groupId)} members
                         </span>
                     </div>
 
@@ -120,10 +119,31 @@ function desplayAvailableGroups(groups) {
         </div>
 
     </li>`;
+
     });
+    
 }
+
+
+// let idValue = listElement
+
+// console.log(idValue);
+
 
 function deleteGroupClick(toBeDeltedGrpId) {
     groups = groups.filter((group) => group.groupId != toBeDeltedGrpId);
     desplayAvailableGroups(groups);
+}
+
+
+function getMembersCount(members, groupId) {
+    console.log(groupId);
+    
+    let count = 0;
+    for (let member of members) {
+        if (member.groupId === groupId) {
+            count++;
+        }
+    }
+    return count;
 }
