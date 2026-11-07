@@ -7,7 +7,7 @@ let members = [
     },
     {
         memberID: 10,
-        groupId: 6,
+        groupId: 10,
         memberName: "mohammed",
         memberPseudoName: "chabab",
     },
@@ -15,8 +15,8 @@ let members = [
 
 let FullNameBlock = document.getElementById("member-full-name");
 let pseudoNameBlock = document.getElementById("membre-pseudo-name");
-let groupId = document.getElementById("group-card");
-console.log(groupId);
+
+
 
 let counter = 1;
 
@@ -42,7 +42,7 @@ function addpMember() {
 
     let newMember = {
         memberID: counter++,
-        groupId: groups.id,
+        groupId: groupIdValue,
         memberName: fullName,
         memberPseudoName: pseudoName,
     };
