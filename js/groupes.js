@@ -125,6 +125,14 @@ function desplayAvailableGroups(groups) {
 }
 
 
+function addEventListnersToBtns() {
+    
+}
+
+
+
+
+// console.log(groupId);
 // let idValue = listElement
 
 // console.log(idValue);
