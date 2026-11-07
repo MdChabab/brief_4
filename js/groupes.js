@@ -123,8 +123,6 @@ function desplayAvailableGroups(groups) {
     });
     
 }
-
-
 function addEventListnersToBtns() {
     
 }
